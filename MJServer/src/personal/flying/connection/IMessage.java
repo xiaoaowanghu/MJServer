@@ -4,7 +4,7 @@
 package personal.flying.connection;
 
 /**
- * @author HiWin10
+ * @author Flying
  *
  */
 public interface IMessage {
