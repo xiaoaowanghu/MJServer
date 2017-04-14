@@ -1,4 +1,4 @@
-package personal.flying.mj;
+package personal.flying.mj.server;
 
 import java.util.Date;
 
@@ -7,11 +7,11 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
-public class TimeHandler extends ChannelInboundHandlerAdapter {
+public class TimeHandlerForTest extends ChannelInboundHandlerAdapter {
 	@Override
-	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {				
 		System.out.println("server channelRead..");
-		ByteBuf buf = (ByteBuf) msg;
+		ByteBuf buf = (ByteBuf) msg;					
 		byte[] req = new byte[buf.readableBytes()];
 		buf.readBytes(req);
 		String body = new String(req, "UTF-8");

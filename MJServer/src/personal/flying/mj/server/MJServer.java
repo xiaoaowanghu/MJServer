@@ -1,7 +1,7 @@
 /**
  * 
  */
-package personal.flying.mj;
+package personal.flying.mj.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -21,9 +21,6 @@ public class MJServer {
 	public final static int Server_Type_TCP = 0;
 	public final static int Server_Type_UDP = 1;
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		try {
 			EventLoopGroup bossGroup = new NioEventLoopGroup();
@@ -35,7 +32,7 @@ public class MJServer {
 						@Override
 						protected void initChannel(SocketChannel ch) throws Exception {
 							System.out.println("server initChannel..");
-							ch.pipeline().addLast(new TimeHandler());
+							ch.pipeline().addLast(new TimeHandlerForTest());
 						}
 					});
 			
