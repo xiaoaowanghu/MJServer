@@ -2,8 +2,6 @@ package personal.flying.connection;
 
 import io.netty.buffer.ByteBuf;
 
-public interface IMessage {
-	IMessageHeader getHeader();
-
+public interface IMessageBody {
 	ByteBuf toBuf();
 }

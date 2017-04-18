@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration>
+
+	<appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd hh:mm:ss}:%p %t %c - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="RollingFileAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="Append" value="false" />
+		<param name="MaxFileSize" value="1KB" />
+		<param name="File" value="dom/my.log" />
+		<param name="MaxBackupIndex" value="3" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd hh:mm:ss}:%p %t %c - %m%n" />
+		</layout>
+	</appender>
+
+	<category name="io.netty">
+		<level value="WARN" />
+		<appender-ref ref="ConsoleAppender" />
+	</category>
+
+	<root>
+		<priority value="debug" />
+		<appender-ref ref="ConsoleAppender" />
+	</root>
+
+</log4j:configuration>
